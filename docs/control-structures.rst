@@ -181,7 +181,9 @@ parameters from the function declaration, but can be in arbitrary order.
     pragma solidity ^0.4.0;
 
     contract C {
-        function f(uint key, uint value) { ... }
+        function f(uint key, uint value) {
+            // ...
+        }
 
         function g() {
             // named arguments

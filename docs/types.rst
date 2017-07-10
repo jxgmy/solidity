@@ -613,6 +613,8 @@ possible:
 
 ::
 
+    // This will not compile.
+
     pragma solidity ^0.4.0;
 
     contract C {
@@ -620,6 +622,7 @@ possible:
             // The next line creates a type error because uint[3] memory
             // cannot be converted to uint[] memory.
             uint[] x = [uint(1), 3, 4];
+        }
     }
 
 It is planned to remove this restriction in the future but currently creates
@@ -826,8 +829,9 @@ for each ``_KeyType``, recursively.
     }
 
     contract MappingUser {
+        address contractAddress = 0x42;
         function f() returns (uint) {
-            return MappingExample(<address>).balances(this);
+            return MappingExample(contractAddress).balances(this);
         }
     }
 
